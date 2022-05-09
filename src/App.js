@@ -1,24 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import 'bulma/css/bulma.css';
+import foods from './foods.json';
+import FoodBox from './components/FoodBox';
+import FoodForm from './components/FoodForm';
+
 
 function App() {
+  const [foodArr, setFoodArr] = React.useState(foods)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <FoodForm setFoodArr={setFoodArr} foodArr={foodArr}/>
+
+      {foodArr.map((individualFood) => {
+        return (
+          <FoodBox 
+            food={individualFood} 
+          />
+        )
+      })}
+     
     </div>
   );
 }
