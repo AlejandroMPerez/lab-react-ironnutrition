@@ -27,6 +27,7 @@ function FoodBox(props) {
             </div>
           </div>
         </div>
+        {/* <p>comment</p> */}
       </article>
     </div>
   );
